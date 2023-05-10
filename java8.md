@@ -36,7 +36,15 @@ Java 8新增功能包括：
 
 ● 使用的特殊符号是 ->
 
-# 函数式接口:Function、Predicate、Consumer和Supplier
+# 函数式接口(Functional Interface)
+
+指的是仅有一个抽象方法的接口
+
+例如Runnable就是一个函数式接口，因为它只有一个抽象方法run()
+
+我们可以使用注解@FunctionalInterface来明确声明一个接口为函数式接口
+
+# 预定义函数式接口:Function、Predicate、Consumer和Supplier
 
 这些接口都是在java.util.function包中定义的
 
