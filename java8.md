@@ -1,4 +1,32 @@
-1.函数式接口:Function、Predicate、Consumer和Supplier
+# java8
+
+于2014年发布
+
+最新版本为19，最新的LTS（长期支持）版本为17
+
+Java 8是当前工业界广泛使用的版本
+
+Java 8通过启用函数式编程帮助编写简洁的代码
+
+Java 8新增功能包括：
+
+● 函数式编程（编写简洁的代码）
+
+● Lambda表达式
+
+● 函数式接口
+
+● 预定义的函数式接口：Predicate、Function、Supplier、Consumer
+
+● 流
+
+● 接口中的默认和静态方法
+
+● :: 运算符
+
+● Optional类
+
+# 函数式接口:Function、Predicate、Consumer和Supplier
 
 这些接口都是在java.util.function包中定义的
 
