@@ -82,3 +82,58 @@ Supplier 接口表示一个不接受任何参数但返回一个结果的函数�
 Supplier<Double> randomValue = () -> Math.random();
 double result = randomValue.get(); // result = 0.123456789
 ```
+# 流 Stream
+
+● 用于将一组对象表示为单个实体
+
+● Streams 用于处理集合中的对象
+
+引入于 Java 8 的 Stream API 用于处理集合中的对象
+
+一个流（Stream）是一系列对象的序列，支持各种方法，可以使用流水线式操作来生成所需的结果
+
+● 我们可以使用各种方法在流上处理对象
+
+流上的方法：
+
+map: map 方法用于返回一个由将给定函数应用于此流的元素而生成的结果组成的流。Map 方法使用 Function 函数式接口。
+List number = Arrays.asList(2,3,4,5);
+List square = number.stream().map(x->x*x).collect(Collectors.toList());
+
+filter: filter 方法用于根据传递的 Predicate 选择元素。Filter 总是需要 Predicate。
+List names = Arrays.asList("Reflection","Collection","Stream");
+List result = names.stream().filter(s->s.startsWith("S")).collect(Collectors.toList());
+
+sorted: sorted 方法用于对流进行排序。这可以使用 lambda 表达式来比较对象。
+List names = Arrays.asList("Reflection","Collection","Stream");
+List result = names.stream().sorted().collect(Collectors.toList());
+
+count: 返回流中对象的数量
+
+forEach: 此方法需要 Consumer，并为每个对象执行此 Consumer
+
+collect: 用于收集结果的方法
+
+以下是一个简单的使用流的例子：
+
+假设我们有一个整数列表，想要得到一个新的列表，其中每个元素都是原列表中的元素的平方，那么我们可以使用流和 map 方法来实现：
+
+```java
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+List<Integer> squares = numbers.stream()
+                                .map(x -> x * x)
+                                .collect(Collectors.toList());
+System.out.println(squares); // 输出 [1, 4, 9, 16, 25]
+```
+这里，我们首先将一个整数列表转换成一个流，然后使用 map 方法将每个元素映射为它的平方，最后使用 collect 方法将结果收集到一个新的列表中。
+
+另外，我们可以使用 filter 方法来筛选出符合特定条件的元素。例如，我们想要得到一个新的字符串列表，其中所有字符串都以字母 "a" 开头，那么可以使用流和 filter 方法来实现：
+
+```java
+List<String> names = Arrays.asList("apple", "banana", "orange", "avocado");
+List<String> filteredNames = names.stream()
+                                    .filter(s -> s.startsWith("a"))
+                                    .collect(Collectors.toList());
+System.out.println(filteredNames); // 输出 [apple, avocado]
+```
+这里，我们首先将一个字符串列表转换成一个流，然后使用 filter 方法筛选出以字母 "a" 开头的字符串，最后使用 collect 方法将结果收集到一个新的列表中。
