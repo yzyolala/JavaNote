@@ -26,6 +26,16 @@ Java 8新增功能包括：
 
 ● Optional类
 
+# Lambda表达式：
+
+● 目的：实现函数式编程
+
+● 它是一种方法/函数表示和匿名方法
+
+● Lambda表达式是一种没有名称、修饰符和返回类型的方法表示形式
+
+● 使用的特殊符号是 ->
+
 # 函数式接口:Function、Predicate、Consumer和Supplier
 
 这些接口都是在java.util.function包中定义的
