@@ -12,6 +12,8 @@ Set子接口：HashSet实现类,LinkedHashSet实现类
 
 Queue子接口：PriorityQueue实现类, ArrayDeque实现类
 
+Map接口：不是Collection接口的子接口
+
 # Collection包含所有集合类通用方法：
 
 isEmpty() - 检查集合的大小是否为零 
@@ -64,4 +66,29 @@ TreeSet类使用树进行存储
 
 它是一种特殊类型的数组，可以增长并允许用户从队列的两侧添加或删除元素
 
-Array deque没有容量限制，它会根据需要增长以支持使用。
+Array deque没有容量限制，它会根据需要增长以支持使用
+
+#包装类
+
+包装类中的实用方法：
+
+parseXXX()方法将字符串值转换为基本类型
+
+toString()方法将包装对象转换为字符串
+
+valueOf()方法将基本类型和字符串转换为包装类对
+
+xxxValue()方法将包装类转换为基本类型，如byteValue()、intValue()等
+
+# 泛型：
+
+泛型是为了提供类型安全，collection是不安全的
+
+集合可以存储多种类型的数据，但是如果我们只想存储一种特定类型的数据，我们可以使用泛型来为集合提供类型安全性
+
+例如，ArrayList names = new ArrayList()；这个ArrayList可以存储任何类型的数据，不保证类型安全
+
+而ArrayList<String> names = new ArrayList<String>()；这个ArrayList是类型安全的，表示我们只能在这个ArrayList中存储字符串数据类型
+  
+ArrayList<String> names = new ArrayList<String>()；这里的String被称为类型参数
+  
