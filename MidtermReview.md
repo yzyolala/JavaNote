@@ -23,3 +23,43 @@
 Java源代码文件可以有多个类，但其中只能有一个是public，且必须与文件名相同。其他类可以有任何访问修饰符（private、protected或默认的），并且可以有任何名称。
 
 Java源代码文件中有多个main方法的问题，是不可能的。每个Java程序只能有一个main方法，这是程序的入口点。如果在Java源代码文件中定义了多个main方法，将会得到编译错误。
+
+# What are OOPS concepts? Abstraction, Encapsulation, Inheritance, Polymorphism
+
+OOPS stands for Object-Oriented Programming System, which is a programming paradigm that uses objects and their interactions to design and implement applications.
+
+抽象：抽象是隐藏复杂实现细节并为用户提供更简单和必要信息的过程。通过抽象类和接口实现抽象。例如：自动取款机的安全性和易于扩展。
+
+封装：封装是将操作数据的方法和数据封装在一个类中的技术。封装提供了数据隐藏，并确保数据仅通过类的定义方法访问，从而提高安全性和可维护性。
+
+继承：继承是通过扩展现有类来定义新类的过程。新类继承现有类的所有属性和行为，并可以添加自己的属性和行为。通过使用“extends”关键字实现继承。继承允许子类使用父类中定义的属性和方法，也可以添加自己的属性和方法
+
+多态性：通过方法重载和方法重写实现多态性。方法重载允许多个方法具有相同的名称但不同的签名，而方法重写允许子类提供其自己的实现，该方法已由其父类提供。
+
+# Difference between String, StringBuffer and StringBuilder?
+
+不可变性：String对象是不可变的，一旦创建了一个字符串对象，它的值就不能更改。StringBuffer和StringBuilder对象是可变的
+
+线程安全性：StringBuffer是线程安全的，StringBuilder不是线程安全的，比StringBuffer更快。
+
+性能：StringBuilder比StringBuffer更快，因为它不会产生线程安全的开销。
+
+当字符序列的值不经常更改时应使用String，当多个线程时应使用StringBuffer，当单个线程时应使用StringBuilder。
+
+# What is Constructor
+
+构造函数是当一个类的对象被创建时调用的特殊方法。构造函数与类名相同，没有返回类型。
+
+Java中有两种类型的构造函数：
+
+默认构造函数：如果一个类中没有定义构造函数，则编译器会提供一个默认构造函数。它没有任何参数，仅使用默认值初始化数据成员。
+
+带参数的构造函数：它是一个接受一个或多个参数并使用传递的值来初始化数据成员的构造函数。它允许我们基于传递的值创建具有不同初始状态的对象。
+
+# Difference between keywords this vs super
+
+"this" 关键字用于引用当前对象的实例变量或调用当前对象的方法。它可以用来避免变量名冲突。
+
+"super" 关键字用于引用当前对象的父类。它可以用来访问父类的构造函数或方法。
+
+总的来说，"this" 关键字是用来引用当前对象，而 "super" 关键字是用来引用父类对象。
