@@ -63,3 +63,63 @@ Java中有两种类型的构造函数：
 "super" 关键字用于引用当前对象的父类。它可以用来访问父类的构造函数或方法。
 
 总的来说，"this" 关键字是用来引用当前对象，而 "super" 关键字是用来引用父类对象。
+
+# Public vs protected vs default vs Private modifiers
+
+public成员：如果一个成员被声明为public，它可以从任何地方访问。类的可见性优先于成员的可见性。
+
+default成员：如果一个成员被声明为默认成员，则我们可以在当前包中访问该成员，因此也称为包级访问。
+
+protected成员：如果一个成员被声明为protected，则可以在当前包中的任何地方访问它，并且只能在外部包的子类中访问。
+
+private成员：如果一个成员是私有的，那么我们只能在类内部访问该成员。
+
+可访问性高度受限的顺序为：private > default > protected > public
+
+public = anywhere 
+
+protected = package + child classes of outside the package 
+
+default = only within package 
+
+private = only within class
+
+# Difference between final, finally and finalize 
+
+final 用于类、方法或变量：
+
+当一个类被标记为 final 时，它不能被继承
+
+当一个方法被标记为 final 时，它不能被覆盖
+
+当一个变量被标记为 final 时，在初始化之后它的值不能被更改
+
+finally 是一段无论是否抛出异常都会执行的代码块。通常用于释放资源，如文件、数据库连接或网络套接字。finally 块总是在 try 和 catch 块之后执行
+
+finalize 是一种在对象被销毁之前由垃圾收集器调用的方法。应谨慎使用 finalize 方法，因为它可能导致不可预测的行为，并对应用程序的性能产生负面影响
+
+总之，final 用于限制继承、方法覆盖和变量修改，finally 用于释放资源，finalize 用于在对象销毁之前执行终止任务
+
+# What is a static and static block?
+
+如果一个成员被声明为static，那么它直接属于类级别。你不需要实例化一个对象来使用它，而是可以直接通过调用它所属的类的名称来使用它。
+
+静态代码块用于初始化静态成员变量。它只会执行一次，并且在类被加载时执行，优先于静态成员变量的初始化和静态方法的调用
+
+```java
+public class MyClass {
+    // 静态成员变量
+    static int num;
+    
+    static {
+        // 静态代码块，初始化静态成员变量
+        num = 10;
+        System.out.println("静态代码块执行");
+    }
+    
+    public static void main(String[] args) {
+        // 访问静态成员变量
+        System.out.println(MyClass.num);
+    }
+}
+```
