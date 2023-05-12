@@ -123,3 +123,18 @@ public class MyClass {
     }
 }
 ```
+
+# Abstract class vs Interface
+
+抽象类可以拥有抽象方法、非抽象方法和成员变量，而接口只能拥有抽象方法和常量。
+
+一个类只能继承一个抽象类，但可以实现多个接口。
+
+抽象类可以有构造函数，而接口不能有。
+
+抽象类中，可以为成员应用访问修饰符（public、protected、private），而接口中所有成员默认为public
+
+接口中的方法都是公共的并且没有方法体
+
+# What is Method overloading and Method overriding?
+
