@@ -138,3 +138,125 @@ public class MyClass {
 
 # What is Method overloading and Method overriding?
 
+重载是在一个类里面，方法名字必须相同，而参数或参数列表必须不同，返回类型和访问修饰符可以相同也可以不同
+
+方法能够在同一个类中或者在一个子类中被重载
+
+重写不能对方法名、参数列表和返回值类型进行修改，访问修饰符不能比父类更严格（父类的一个方法被声明为 public，那么在子类中重写该方法就不能声明为 protected）
+
+关键字 static、final 和 private 都不能被重写
+
+# Why is multiple inheritance through classes not possible in Java?
+
+名称冲突：如果多个父类中有相同的方法或变量，那么在子类中使用这些方法或变量时就会产生歧义。例如，如果父类A和父类B都有一个名为foo()的方法，而子类C继承了这两个父类，那么在C类中使用foo()方法时就无法确定调用哪个父类的foo()方法。
+
+菱形继承问题：如果多个父类共同继承自同一个父类，那么子类在继承这些父类的同时也会继承这些父类中的公共父类。这样就会产生一个问题，就是当子类调用一个在公共父类中定义的方法时，它不知道该调用哪一个父类的实现。这被称为菱形继承问题，因为继承关系图形状像一个菱形。
+
+# Difference between C c = new C() and P p = new C()
+
+P p = new C()表示创建一个C类的对象。由于C类是P类的子类，因此该对象同样也是P类的一个实例。然而，由于p的类型是P，因此只能调用P类中定义的方法和访问P类中定义的属性，即使这个对象实际上是C类的一个实例。如果C类重写了P类中的方法，则会调用C类中的方法。
+
+# Checked Exception vs Unchecked Exception
+
+Checked exceptions指的是那些可以在编译时检测到并且需要在方法签名中声明的异常，以便在调用方法时处理。Checked exceptions通常表示程序中的预期情况。
+
+Unchecked exceptions（如算术异常）指的是那些无法在编译时检测到的异常，通常是由程序逻辑错误引起的。这些异常在方法签名中不需要声明。
+
+# What is Enum?
+
+Java 枚举是一个特殊的类，一般表示一组常量，比如一年的 4 个季节，一个年的 12 个月份，一个星期的 7 天，方向有东南西北等。
+
+Java 枚举类使用 enum 关键字来定义，各个常量使用逗号 , 来分割。它们可以提高代码的可读性，可维护性和安全性。
+
+# Arrays vs Collection
+
+数组是一个固定长度的数据结构，它可以存储基本数据类型和对象类型的元素。在创建数组时，必须指定它的长度，并且该长度在整个程序运行期间都不会改变。数组具有以下特点：
+
+数组元素可以通过索引访问，索引从0开始。
+
+数组可以存储基本数据类型和对象类型的元素。
+
+数组长度是固定的，一旦创建就不能改变。
+
+数组可以是多维的，也就是数组的元素可以是数组
+
+集合是一个动态长度的数据结构，它可以存储对象类型的元素。在创建集合时，不需要指定其长度，集合会自动根据元素的数量来调整其大小。
+
+Java中提供了多种类型的集合，如List、Set、Queue和Map等。集合具有以下特点：
+
+集合元素可以通过迭代器或者foreach循环访问。
+
+集合只能存储对象类型的元素。
+
+集合的长度可以动态改变，根据元素的数量来自动调整。
+
+集合可以实现多种接口，如List接口可以按照元素的插入顺序来保存元素，Set接口可以确保元素的唯一性。
+
+# Difference between List and Set?
+
+List和Set都是Java中的集合框架。它们在以下方面有所不同：
+
+1.有序性：List是有序的集合，Set是无序的集合。
+
+2.可重复性：List允许存储重复的元素，而Set不允许存储重复的元素。
+
+3.访问方式：List可以通过索引进行访问。Set只能通过迭代器进行访问。
+
+4.实现方式：List的实现包括ArrayList、LinkedList和Vector等。Set的实现包括HashSet、TreeSet和LinkedHashSet等。
+
+# What is a Wrapper class?
+
+包装类是用于将原始类型数据转换为对象的类，这使得它们可以拥有一些有用的方法。
+
+Byte、Short、Integer、Long、Float、Double、Boolean、Character 是Java中的包装类。
+
+它们具有以下方法：
+
+● parseXXX()：将字符串值转换为相应的原始类型值
+
+● toString()：将包装对象转换为字符串
+
+● valueOf()：将原始类型和字符串转换为包装类对象
+
+● xxxValue()：byteValue()、intValue() 等将包装类转换为相应的原始类型
+
+# Difference between HashSet and TreeSet
+
+HashSet和TreeSet都是的Set接口的实现类，它们之间有以下区别：
+
+内部实现：HashSet使用哈希表实现，而TreeSet使用红黑树实现。
+
+有序性：HashSet是无序的，而TreeSet是有序的。TreeSet可以按照元素的自然排序或者指定的比较器进行排序。
+
+性能：由于HashSet使用哈希表，它在插入、删除和查找元素时的性能比TreeSet更高效。但是，TreeSet可以提供有序遍历集合的功能。
+
+元素唯一性：HashSet通过hashCode()和equals()方法来判断元素是否重复，而TreeSet通过compareTo()或Comparator接口的compare()方法来判断元素是否重复
+
+# In how many ways a Thread can be created?
+
+1.继承Thread类并覆盖其run()方法：
+
+创建一个继承自Thread类的子类，覆盖run()方法并在该方法中定义线程的主要逻辑。然后创建该类的对象，并调用start()方法启动线程。
+
+2.实现Runnable接口：
+
+创建一个实现Runnable接口的类，并实现该接口的run()方法。然后创建Thread类的对象并将该实现了Runnable接口的类的实例传递给Thread类的构造函数中，最后调用start()方法启动线程。
+
+# Different Life cycles of Thread?
+
+在Java中，线程的生命周期可以分为以下五个状态：
+
+1.新建状态（New）：当一个Thread对象被创建时，它处于新建状态。
+
+2.就绪状态（Runnable）：当线程被创建后，调用start()方法之前，线程处于就绪状态。此时，线程已经准备好运行，只需要等待系统调度它即可。
+
+3.运行状态（Running）：当线程被系统调度时，进入运行状态。此时，线程正在执行run()方法中的代码。
+
+4.阻塞状态（Blocked）：当线程在执行过程中，由于某些原因（如等待I/O操作、等待获取锁等），暂时停止了执行，此时进入阻塞状态。当阻塞的原因消除后，线程又会进入就绪状态。
+
+5.终止状态（Terminated）：当线程执行完了run()方法中的代码或者抛出了异常而终止时，线程进入终止状态。
+
+# sleep vs yield vs join
+
+# What is Lambda expression and Functional Interface
+# What are streams? explain few methods on streams
