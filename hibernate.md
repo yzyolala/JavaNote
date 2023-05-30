@@ -120,15 +120,15 @@ public class App
         or1.setCustomer(c);
         or2.setCustomer(c);
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
-        Session session = factory.openSession();
-        Transaction t = session.beginTransaction();
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();// 创建一个新的 SessionFactory 对象，并通过默认配置进行配置
+        Session session = factory.openSession();// 打开一个新的 Session 对象
+        Transaction t = session.beginTransaction();// 开始一个新的数据库事务
 
-        session.persist(or1);
+        session.persist(or1);// 将对象持久化到数据库中
         session.persist(or2);
         session.persist(c);
-        t.commit();
-        session.close();
+        t.commit();// 提交事务，将更改保存到数据库中
+        session.close();// 关闭 Session
 
     }
 }
