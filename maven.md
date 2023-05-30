@@ -12,7 +12,7 @@ Artifact ID 是指项目本身的唯一标识符。它用于区分同一个组�
 
 选择：quick start
 
-# mavenn生命周期
+# maven生命周期
 
 compile: 编译所有源代码文件生成类文件
 package: 构建应用程序并创建一个可部署的jar文件
