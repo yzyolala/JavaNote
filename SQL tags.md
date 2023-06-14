@@ -4,6 +4,10 @@
 
 ## @JoinTable(name = "student_course", joinColumns = @JoinColumn(name="student_id",referencedColumnName = "id"), inverseJoinColumns =@JoinColumn(name="course_id",referencedColumnName = "id"))
 
+# CascadeType.PERSIST与CascadeType.ALL区别
+
+如果只需要在持久化时自动保存关联实体，可以使用CascadeType.PERSIST；如果希望在执行任何操作时都自动处理关联实体，可以使用CascadeType.ALL
+
 ## @ManyToMany(mappedBy = "courses")
 
 
