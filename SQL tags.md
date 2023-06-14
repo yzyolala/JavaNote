@@ -40,7 +40,7 @@ GenerationType.IDENTITY：该策略通常适用于使用自增列（如MySQL中�
 
 referencedColumnName = "id"指定了在学生实体表中表示主键ID的列的名称。
 
-# #@OneToMany使用套路
+# @OneToMany使用套路
 
 主表的属性通常搭配@OneToMany加上对应另一个表属性的Set集合 例如：
 ```java
@@ -55,3 +55,26 @@ Set<Vehicle> vehicles = new HashSet<>();
 @JoinColumn(name="s_id",referencedColumnName = "id")
     Student student;
 ```
+
+总结：@OneToMany一般搭配mappedBy属性来设置主导方，不需要搭配@JoinColumn注解
+
+# @OneToOne使用套路
+
+通常情况下你不需要使用mappedBy属性。这是因为在@OneToOne关系中，存在一个主导方和一个从属方。。主导方负责维护关联关系，并且不需要通过mappedBy属性指定关系被拥有方
+@JoinColumn注解通常与@OneToOne注解一起使用，以指定关系拥有方实体中的外键列。通过@JoinColumn注解，你可以自定义外键列的名称、是否可空、唯一约束等
+
+总结：@OneToOne一般搭配@JoinColumn，不搭配mappedBy属性
+
+# @ManyToOne使用套路
+
+一般可选搭配@JoinColumn，不搭配mappedBy属性
+
+# 表格总结：
+
+| 注解         | 搭配 `mappedBy` 属性 | 搭配 `@JoinColumn` 注解 |
+|--------------|------------------|-----------------------|
+| `@OneToMany` | 是               | 否                    |
+| `@OneToOne`  | 否               | 是                    |
+| `@ManyToOne` | 否               | 可选                   |
+
+
