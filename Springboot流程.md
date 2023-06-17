@@ -105,3 +105,73 @@ c.在Exception里面编写内容
 d.写完新的对象这段代码：Order r= new Order(); 之后就要条件反射地写上orderRepository.save(r);
 
 e.然后再给对象设置各种属性，这里因为之前倒入了lombok了，所以就会出现对应的set方法进行设置
+
+11.mode文件大体写完之后，开始写controller文件，创建一个controller文件夹，里面对应的写好名字为例如：ProductController的类文件
+
+12.编写该controller类文件：
+
+```java
+@RestController
+@RequestMapping("/product")//主域名
+public class ProductController {
+
+    @PostMapping("/create")//分域名
+    public Product createProduct(@RequestBody Product product){//参数的tag不能少
+    }
+}
+```
+
+13.controller部分暂时完成，一会继续补充，现在开始编写对应的service部分函数
+
+14.创建一个service文件夹，里面对应的写好名字为例如：ProductService的接口文件，注意一定是接口，大致格式如下：
+
+```java
+public interface ProductService {
+
+    Product createProduct(Product product);//内容编写好需要的实现功能的抽象类
+
+    void stockProduct(Long productId,Long quantity);
+}
+```
+
+15.既然有了接口，就要有实现它内部抽象类的额外的实现类文件，所以在service包下新建一个impl文件夹，然后内部创建对应接口的类文件 如：ProductServiceImpl.class
+
+```java
+@Service
+public class ProductServiceImpl implements ProductService {
+
+    @Autowired
+    private ProductRepository productRepository;//注入Repository
+    
+    @Override
+    public Product createProduct(Product product) {//接口文件里面的方法
+        Product savedProduct=productRepository.save(product);//编写真正实现方法的内容
+        return savedProduct;
+    }
+
+    @Override
+    public void stockProduct(Long productId, Long quantity) {
+
+    }
+}
+```
+
+16.此时回到controller，补全之前的方法
+```java
+@RestController
+@RequestMapping("/product")
+public class ProductController {
+    @Autowired
+    private ProductService productService;//Service现在已经编写完毕，可以调用，所以这里是ProductService而不是ProductRepository
+
+    @PostMapping("/create")
+    public Product createProduct(@RequestBody Product product){
+        Product savedProduct=productService.createProduct(product);//.createProduct()方法在接口中也编写完毕可以直接调用
+        return savedProduct;
+    }
+}
+```
+
+17.此时注意检查之前的Product主类文件是否使用了@Setter@Getter
+
+18.运行
