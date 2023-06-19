@@ -90,11 +90,11 @@ public interface ProductRepository extends CrudRepository<Product,Long> {//exten
 
 # springboot文件大概结构构成
 
-**repository文件夹：**
+***repository文件夹：***
 
 repository接口文件
 
-**service文件夹：**
+***service文件夹：***
 
 1.实现类文件夹，名为impl
 
@@ -106,13 +106,13 @@ impl类文件用来实现xxxService接口文件内的方法
 
 impl类文件需要使用repository接口文件才能实现重写service
 
-**model文件夹：**
+***model文件夹：***
 
 各种主类文件
 
 主类文件一般定义属性，@Entity@Getter@Setter@Id@GeneratedValue(strategy = GenerationType.IDENTITY)@OneToMany等等
 
-**controller文件夹：**
+***controller文件夹：***
 
 1.定义路由
 
