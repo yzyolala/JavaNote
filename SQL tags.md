@@ -87,3 +87,52 @@ Repository文件的主要作用是定义数据访问的接口和方法，通过�
 public interface ProductRepository extends CrudRepository<Product,Long> {//extends CRUD功能接口，<对应的类，对应的类的主键>
 }
 ```
+
+# springboot文件大概结构构成
+
+**repository文件夹：**
+
+repository接口文件
+
+**service文件夹：**
+
+1.实现类文件夹，名为impl
+
+2.service接口文件，名为xxxService
+
+service接口文件定义内部方法
+
+impl类文件用来实现xxxService接口文件内的方法
+
+impl类文件需要使用repository接口文件才能实现重写service
+
+**model文件夹：**
+
+各种主类文件
+
+主类文件一般定义属性，@Entity@Getter@Setter@Id@GeneratedValue(strategy = GenerationType.IDENTITY)@OneToMany等等
+
+**controller文件夹：**
+
+1.定义路由
+
+2.上面由impl文件实现好的service接口方法现在终于可以调用了
+
+3.需要的特有标签：@RestController@RequestMapping（设置主路由）@PostMapping（设置分路由）
+
+```java
+@RestController
+@RequestMapping("/customer")
+public class CustomerController {
+
+    @Autowired
+    private CustomerService customerService;
+
+    @PostMapping("/register")
+    public Customer registerCustomer(@RequestBody Customer customer){
+        Customer saved= customerService.registerCustomer(customer);
+        return saved;
+    }
+
+}
+```
