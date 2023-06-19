@@ -77,4 +77,13 @@ Set<Vehicle> vehicles = new HashSet<>();
 | `@OneToOne`  | 否               | 是                    |
 | `@ManyToOne` | 否               | 可选                   |
 
+# Repository文件的作用
 
+Repository文件的主要作用是定义数据访问的接口和方法，通过这些方法可以进行常见的CRUD（创建、读取、更新和删除）操作。它隐藏了底层数据库的细节，并提供了一种面向对象的方式来操作数据。
+所以一般repository文件内容如下：
+
+```java
+@Repository
+public interface ProductRepository extends CrudRepository<Product,Long> {//extends CRUD功能接口，<对应的类，对应的类的主键>
+}
+```
