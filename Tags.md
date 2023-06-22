@@ -136,3 +136,23 @@ public class CustomerController {
 
 }
 ```
+
+# @PathVariable和@RequestBody
+```java
+@DeleteMapping("/cancel/{id}")
+    public String cancelOrder(@PathVariable Long id) throws OrderNotFoundException {
+        return orderService.cancelOrder(id);
+    }
+```
+表示从路径中"/cancel/{id}"去拿这个变量id
+
+```java
+@PostMapping("/updateaddress/{id}")
+    public Order updateAddress(@PathVariable Long id, @RequestBody Address address) throws OrderNotFoundException {
+        Order updateorder = orderService.updateAddress(id, address);
+        return updateorder;
+    }
+```
+表示需要给一个json文件传进去（Postman写json格式的新内容）
+
+ 
