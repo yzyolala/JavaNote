@@ -1,48 +1,43 @@
-# java8
+# Java 8
 
-于2014年发布
+## 概览
 
-最新版本为19，最新的LTS（长期支持）版本为17
+- 发布于 2014 年
+- 最新版本为 19，最新的 LTS（长期支持）版本为 17
+- Java 8 是当前工业界广泛使用的版本
+- 通过启用函数式编程来编写简洁的代码
 
-Java 8是当前工业界广泛使用的版本
+## 主要特点
 
-Java 8通过启用函数式编程帮助编写简洁的代码
+- 函数式编程
+- Lambda 表达式
+- 函数式接口
+- 预定义的函数式接口：Predicate、Function、Supplier、Consumer
+- 流（Streams）
+- 接口中的默认和静态方法
+- `::` 运算符
+- Optional 类
 
-Java 8新增功能包括：
+---
 
-● 函数式编程（编写简洁的代码）
+## Lambda 表达式
 
-● Lambda表达式
+### 特点
 
-● 函数式接口
+- 实现函数式编程
+- 是方法或函数的匿名表示形式
+- 没有名称、修饰符和返回类型
+- 使用 `->` 作为特殊符号
 
-● 预定义的函数式接口：Predicate、Function、Supplier、Consumer
+---
 
-● 流
+## 函数式接口 (Functional Interface)
 
-● 接口中的默认和静态方法
+### 特点
 
-● :: 运算符
-
-● Optional类
-
-# Lambda表达式：
-
-● 目的：实现函数式编程
-
-● 它是一种方法/函数表示和匿名方法
-
-● Lambda表达式是一种没有名称、修饰符和返回类型的方法表示形式
-
-● 使用的特殊符号是 ->
-
-# 函数式接口(Functional Interface)
-
-指的是仅有一个抽象方法的接口
-
-例如Runnable就是一个函数式接口，因为它只有一个抽象方法run()
-
-我们可以使用注解@FunctionalInterface来明确声明一个接口为函数式接口
+- 只有一个抽象方法的接口
+- 例如，`Runnable` 是一个函数式接口，因为它只有一个抽象方法 `run()`
+- 可以使用 `@FunctionalInterface` 注解来明确声明一个接口为函数式接口
 
 # 预定义函数式接口:Function、Predicate、Consumer和Supplier
 
