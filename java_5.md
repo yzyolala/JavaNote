@@ -1,46 +1,42 @@
-1. Exception是一个类，当程序有错误发生，JVM会自动创建一个exception类
+## Java 异常处理概览
 
-2. 当exception发生时，程序会被中断
+### 1. Exception 是一个类
+当程序有错误发生，JVM 会自动创建一个 exception 类。
 
-3. 异常类中的方法：
+### 2. 当 exception 发生时
+程序会被中断。
 
-   printStackTrace()——>提供异常名称、描述和堆栈跟踪
-  
-   toString()——>提供异常名称和描述
-  
-   getMessage()——>提供异常描述
-  
-4. Runtime Stack Mechanism: keeps track of all method calls in a Thread.
+### 3. 异常类中的方法
+- `printStackTrace()` -> 提供异常名称、描述和堆栈跟踪。
+- `toString()` -> 提供异常名称和描述。
+- `getMessage()` -> 提供异常描述。
 
-    (运行时堆栈机制：跟踪线程中的所有方法调用)
-   
-   ● For every thread JVM creates a Runtime stack 
-  
-   ● Every method call performed in the thread is stored in Runtime stack 
-  
-   ● If at least one method terminates abnormally, program termination is abnormal termination 
-  
-   ● After all methods are executed JVM destroys the runtime stack
-  
-5. Object(所有java类的父类)->Throwable类：exception class &error class
-                                        
-| 异常类型             | 由程序编写 | 可恢复性     |
-|----------------------|-------------|--------------|
-| Exception            | 是          | 可恢复的     |
-| Error                | 否          | 不可恢复的   |
+### 4. Runtime Stack Mechanism (运行时堆栈机制)
+跟踪线程中的所有方法调用。
 
-异常被分为两种类型：Checked Exception 和 Unchecked Exception
+- 对于每个线程，JVM 创建一个运行时堆栈。
+- 线程中执行的每个方法调用都存储在运行时堆栈中。
+- 如果至少有一个方法异常终止，则程序终止也是异常终止。
+- 所有方法执行完后，JVM 销毁运行时堆栈。
 
-Checked Exception 指那些在编译时就能被检测到的异常，需要在方法签名中声明该异常，以便在方法被调用时进行处理。如果不进行处理，代码将无法编译通过。通常 Checked Exception 表示程序
-中的一种预期情况。
+### 5. 继承体系
+Object (所有 java 类的父类) -> Throwable 类：exception class & error class
 
-Unchecked Exception (例如 算数异常)指那些在编译时无法被检测到的异常，通常是由程序逻辑错误引起的。这种异常不需要在方法签名中声明，也不需要在方法被调用时进行处理。
+| 异常类型  | 由程序编写  | 可恢复性    |
+|-----------|------------|------------|
+| Exception | 是         | 可恢复的    |
+| Error     | 否         | 不可恢复的  |
 
-各种异常：运行时异常、算术异常、空指针异常、下标越界异常、文件未找到异常。
+- **Checked Exception** 和 **Unchecked Exception**
+  - Checked Exception 指编译时就能被检测到的异常。
+  - Unchecked Exception 指编译时无法被检测到的异常。
 
-注意：异常只会在运行时发生，无法在编译时发生。
+**各种异常**: 运行时异常、算术异常、空指针异常、下标越界异常、文件未找到异常。
+
+> 注意：异常只会在运行时发生，无法在编译时发生。
 
 ```java
+// Java Code Example
 import java.io.*;
 
 public class Example {
@@ -73,11 +69,12 @@ public class Example {
     }
 }
 ```
-6.错误(Error)：表示不可恢复的条件，如Java虚拟机(JVM)耗尽内存、内存泄漏、堆栈溢出错误、库不兼容、无限递归等。错误通常超出程序员的控制范围，我们不应该试图处理错误。
+
+### 6.错误(Error)：表示不可恢复的条件，如Java虚拟机(JVM)耗尽内存、内存泄漏、堆栈溢出错误、库不兼容、无限递归等。错误通常超出程序员的控制范围，我们不应该试图处理错误。
 
 ( Java virtual machine (JVM) running out of memory, memory leaks, stack overflow errors, library incompatibility, infinite recursion, etc.)
 
-7.throws throw区别
+### 7.throws throw区别
 
 throw关键字用于在代码中显式抛出异常，例如：
 
