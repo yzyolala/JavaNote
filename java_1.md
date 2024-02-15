@@ -1,8 +1,7 @@
 ## Java 开发基础
 
-- **javac**: 就是compiler
 - **JDK**: 等于 JRE（JVM + libraries
-） + javac + development tools
+） + Javac（编译器） + 开发工具
 
 - ## Java 组件对比
 
