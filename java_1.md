@@ -22,8 +22,6 @@
 - **原始数据类型**（8种）：
     - byte,short,int,long,float,double,char,boolean
 
-### 数据类型和内存
-
 - **按照占用内存空间大小排序**：
     - double(8 bytes)=long(8 bytes)>float(4 bytes)>int(4 bytes)>short(2 bytes)=char(2 bytes)>byte(1 byte)>boolean(usually occupy 1 byte)
 - **强制类型转换也按照这个顺序**
