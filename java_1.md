@@ -1,4 +1,4 @@
-## Java 开发基础
+### Java 开发基础
 
 - JDK=JRE（JVM + libraries
 ） + Javac（编译器：将Java源代码编译成JVM执行的字节码文件） + 开发工具
