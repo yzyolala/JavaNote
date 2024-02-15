@@ -1,7 +1,7 @@
 ## Java 开发基础
 
-- **JDK**: 等于 JRE（JVM + libraries
-） + Javac（编译器） + 开发工具
+- JDK=JRE（JVM + libraries
+） + Javac（编译器：将Java源代码编译成JVM执行的字节码文件） + 开发工具
 
 - ## Java 组件对比
 
