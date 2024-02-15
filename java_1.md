@@ -14,27 +14,27 @@
 | **安装程序**    | 附带安装程序                    | 只包含执行源代码的环境                 | 包含在 JDK 和 JRE 中|
 
 
-### 5. 编程基础
+### 编程基础
 
 - **Identifiers**: Any name(class name, method name, variables etc.) in a java program
 - **1 byte = 8 bits**
 
-### 6. 数据类型
+### 数据类型
 
 - **原始数据类型**：（8种）：
     - byte,short,int,long,float,double,char,boolean
 
-### 7. 数据类型和内存
+### 数据类型和内存
 
 - **按照占用内存空间大小排序**：
     - double(8 bytes)=long(8 bytes)>float(4 bytes)>int(4 bytes)>short(2 bytes)=char(2 bytes)>byte(1 byte)>boolean(usually occupy 1 byte)
 - **强制类型转换也按照这个顺序**
 
-### 8. 类型转换
+### 类型转换
 
 - **小->大**: 自动转换
 - **大->小**: 强制转换
 
-### 9. 常用数据类型
+### 常用数据类型
 
 - **小数一般用double，整数一般用int**
