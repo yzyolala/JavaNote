@@ -3,9 +3,8 @@
 ### 1. 工具和环境
 
 - **javac**: 就是compiler
-- **JDK**: 等于 JRE + javac 和 development tools
-- **JRE**: 等于 JVM + libraries
-    - **注意**: JRE 不包含 javac
+- **JDK**: 等于 JRE + javac + development tools
+- **JRE**: 等于 JVM + libraries（JRE 不包含 javac）
 
 ### 2. 工具和环境的定义
 
