@@ -19,7 +19,7 @@
 
 ### 数据类型
 
-- **原始数据类型**：（8种）：
+- **原始数据类型**（8种）：
     - byte,short,int,long,float,double,char,boolean
 
 ### 数据类型和内存
