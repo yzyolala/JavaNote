@@ -66,23 +66,23 @@ Java中有两种类型的构造函数：
 
 # Public vs protected vs default vs Private modifiers
 
-public成员：如果一个成员被声明为public，它可以从任何地方访问。类的可见性优先于成员的可见性。
+公共成员：如果一个成员被声明为public，它可以从任何地方访问。类的可见性优先于成员的可见性。
 
-default成员：如果一个成员被声明为默认成员，则我们可以在当前包中访问该成员，因此也称为包级访问。
+默认成员：如果一个成员被声明为默认成员，则我们只能在当前包中访问该成员，因此也称为包级访问。
 
-protected成员：如果一个成员被声明为protected，则可以在当前包中的任何地方访问它，并且只能在外部包的子类中访问。
+受保护成员：如果一个成员被声明为protected，则可以在当前包中的任何地方访问它，并且只能在外部包的子类中访问。
 
-private成员：如果一个成员是私有的，那么我们只能在类内部访问该成员。
+私有成员：如果一个成员是私有的，那么我们只能在类内部访问该成员。
 
-可访问性高度受限的顺序为：private > default > protected > public
+可访问性高度受限的顺序为：私有 > 默认 > 受保护 > 公共
 
-public = anywhere 
+公共 = 任何地方
 
-protected = package + child classes of outside the package 
+受保护 = 包内 + 外部包的子类
 
-default = only within package 
+默认 = 仅限于包内
 
-private = only within class
+私有 = 仅限于类内
 
 # Difference between final, finally and finalize 
 
