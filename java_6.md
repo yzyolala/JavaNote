@@ -18,10 +18,6 @@
 - toArray() - 给出对象数组
 - iterator() - 返回Iterator对象，用于迭代集合中的对象
 
-## Map接口：
-
-Map接口不是Collection接口的子接口。
-
 ## HashSet：
 
 - HashSet类基于哈希表数据结构实现
