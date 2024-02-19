@@ -20,9 +20,9 @@
 
 # Can a Java source file have more than one class? and more than one main method?
 
-Java源代码文件可以有多个类，但其中只能有一个是public，且必须与文件名相同。其他类可以有任何访问修饰符（private、protected或默认的），并且可以有任何名称。
+Java可以有多个类，但其中只能有一个是public，且必须与文件名相同。其他类可以有任何访问修饰符（private、protected或默认的），并且可以有任何名称。
 
-Java源代码文件中有多个main方法的问题，是不可能的。每个Java程序只能有一个main方法，这是程序的入口点。如果在Java源代码文件中定义了多个main方法，将会得到编译错误。
+Java不可能有多个main方法。每个Java程序只能有一个main方法，这是程序的入口点。如果在Java源代码文件中定义了多个main方法，将会得到编译错误。
 
 # What are OOPS concepts? Abstraction, Encapsulation, Inheritance, Polymorphism
 
