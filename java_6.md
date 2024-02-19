@@ -1,17 +1,11 @@
 # 集合框架
 几个类和接口可以一起使用，将一组对象表示为单个实体。集合具有动态大小，意味着它们是可扩展的—我们可以增加或减少大小。
 
-## 结构
-
-### Collection根接口：
+## Collection根接口：
 
 - List子接口：ArrayList实现类, LinkedList实现类, Vector实现类（Stack子类）
 - Set子接口：HashSet实现类, LinkedHashSet实现类
 - Queue子接口：PriorityQueue实现类, ArrayDeque实现类
-
-### Map接口：
-
-Map接口不是Collection接口的子接口。
 
 ## Collection通用方法：
 
@@ -23,6 +17,10 @@ Map接口不是Collection接口的子接口。
 - contains(Object o) - 检查集合是否包含给定对象
 - toArray() - 给出对象数组
 - iterator() - 返回Iterator对象，用于迭代集合中的对象
+
+## Map接口：
+
+Map接口不是Collection接口的子接口。
 
 ## HashSet：
 
