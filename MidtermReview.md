@@ -102,27 +102,46 @@ finalize 是一种在对象被销毁之前由垃圾收集器调用的方法。�
 
 # What is a static and static block?
 
-如果一个成员被声明为static，那么它直接属于类级别。你不需要实例化一个对象来使用它，而是可以直接通过调用它所属的类的名称来使用它。
+静态成员：如果一个成员被声明为static，那么它直接属于类级别。你不需要实例化一个对象来使用它，而是可以直接通过调用它所属的类的名称来使用它。
 
-静态代码块用于初始化静态成员变量。它只会执行一次，并且在类被加载时执行，优先于静态成员变量的初始化和静态方法的调用
+静态代码块：用于初始化静态成员变量。它只会执行一次，并且在类被加载时执行，优先于静态成员变量的初始化和静态方法的调用
 
 ```java
-public class MyClass {
+public class Example {
     // 静态成员变量
-    static int num;
-    
+    public static int staticVariable;
+
+    // 静态代码块
     static {
-        // 静态代码块，初始化静态成员变量
-        num = 10;
-        System.out.println("静态代码块执行");
+        System.out.println("静态代码块被执行");
+        staticVariable = 10; // 初始化静态变量
     }
-    
+
+    // 静态方法
+    public static void staticMethod() {
+        System.out.println("静态方法被调用");
+    }
+
     public static void main(String[] args) {
-        // 访问静态成员变量
-        System.out.println(MyClass.num);
+        // 直接通过类名访问静态成员变量
+        System.out.println("静态成员变量的值：" + Example.staticVariable);
+
+        // 调用静态方法
+        Example.staticMethod();
     }
 }
+
 ```
+
+在这个例子中，我们有一个名为 Example 的类。其中包括了一个静态成员变量 staticVariable、一个静态代码块以及一个静态方法 staticMethod。
+
+静态成员变量 staticVariable 是一个静态成员，它属于类级别而不是实例级别，因此可以通过类名直接访问。
+
+静态代码块在类被加载时执行一次，并且在主方法之前执行。在这个例子中，静态代码块用于初始化静态成员变量 staticVariable。
+
+静态方法 staticMethod 也是一个静态成员，可以通过类名直接调用。
+
+在 main 方法中，我们演示了如何通过类名直接访问静态成员变量和调用静态方法。
 
 # Abstract class vs Interface
 
