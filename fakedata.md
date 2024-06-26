@@ -1,5 +1,66 @@
 ```java
 
+package com.walmart.paystub.api.global.services;
+
+import com.walmart.paystub.api.global.models.paystub.PaystubDTO;
+import com.walmart.paystub.api.global.models.paystub.RootPaystub;
+import com.walmart.paystub.api.global.repositories.RootPaystubRepository;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+@SpringBootTest
+public class PaystubServiceImplTest {
+
+    @Mock
+    private RootPaystubRepository rootPaystubRepository;
+
+    @InjectMocks
+    private PaystubServiceImpl paystubService;
+
+    @BeforeEach
+    void setup() {
+        MockitoAnnotations.openMocks(this);
+    }
+
+    @Test
+    void getRootpaystubsByQuery() {
+        // Arrange
+        Long win = 224823227L;
+        LocalDate payPDBegDate = LocalDate.of(2023, 6, 28);
+        LocalDate payPDEndDate = LocalDate.of(2023, 6, 28);
+
+        List<RootPaystub> mockPaystubs = new ArrayList<>();
+        mockPaystubs.add(new RootPaystub());
+
+        when(rootPaystubRepository.findByPayPeriodSummary_WinAndCheckInfo_PayPDBegDateAndCheckInfo_PayPDEndDate(
+                ArgumentMatchers.anyLong(), ArgumentMatchers.any(LocalDate.class), ArgumentMatchers.any(LocalDate.class)
+        )).thenReturn(mockPaystubs);
+
+        PaystubDTO paystubDTO = new PaystubDTO();
+        paystubDTO.setWin(win);
+        paystubDTO.setPayPDBegDate(payPDBegDate);
+        paystubDTO.setPayPDEndDate(payPDEndDate);
+
+        // Act
+        List<RootPaystub> rootpaystubs = paystubService.getRootpaystubsByQuery(paystubDTO);
+
+        // Assert
+        assertNotNull(rootpaystubs);
+    }
+}
+
 @GetMapping("/getRootpaystubsByQuery")
     public ResponseEntity<List<RootPaystub>> getRootpaystubsByQuery() {
         String winStr = request.getHeader("win");
