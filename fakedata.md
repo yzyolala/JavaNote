@@ -1,5 +1,26 @@
 ```java
 
+@GetMapping("/getRootpaystubsByQuery")
+    public ResponseEntity<List<RootPaystub>> getRootpaystubsByQuery() {
+        String winStr = request.getHeader("win");
+        String payPDBegDateStr = request.getHeader("payPDBegDate");
+        String payPDEndDateStr = request.getHeader("payPDEndDate");
+
+        Long win = Long.parseLong(winStr);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate payPDBegDate = LocalDate.parse(payPDBegDateStr, formatter);
+        LocalDate payPDEndDate = LocalDate.parse(payPDEndDateStr, formatter);
+
+        PaystubDTO paystubDTO = new PaystubDTO();
+        paystubDTO.setWin(win);
+        paystubDTO.setPayPDBegDate(payPDBegDate);
+        paystubDTO.setPayPDEndDate(payPDEndDate);
+
+        List<RootPaystub> rootpaystubs = paystubService.getRootpaystubsByQuery(paystubDTO);
+
+        return new ResponseEntity<>(rootpaystubs, HttpStatus.OK);
+    }
+
 {
   "id": "3c2fec05-b86e-455f-9d7d-c70c1804ea9e",
   "payAssociateInfo": {
