@@ -1,5 +1,13 @@
 ```java
 
+SELECT c.payPeriodSummary
+FROM c
+WHERE c.win = '224823227'
+AND ((c.payPeriodSummary.payPDBegDate[0] = 2023 AND c.payPeriodSummary.payPDBegDate[1] = 6 AND c.payPeriodSummary.payPDBegDate[2] >= 1)
+    OR (c.payPeriodSummary.payPDBegDate[0] = 2023 AND c.payPeriodSummary.payPDBegDate[1] > 6))
+AND ((c.payPeriodSummary.payPDEndDate[0] = 2023 AND c.payPeriodSummary.payPDEndDate[1] <= 7 AND c.payPeriodSummary.payPDEndDate[2] <= 31)
+    OR (c.payPeriodSummary.payPDEndDate[0] = 2023 AND c.payPeriodSummary.payPDEndDate[1] < 7))
+
 package com.walmart.paystub.api.global.services;
 
 import com.walmart.paystub.api.global.models.paystub.PaystubDTO;
