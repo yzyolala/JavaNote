@@ -1,5 +1,7 @@
 ```java
 
+List<RootPaystub> findByPayPeriodSummary_WinAndPayPeriodSummary_PayrollRunDateLessThanEqualAndPayPeriodSummary_PayrollRunDateGreaterThanEqual(int win, String startDate, String endDate);
+
 @Query("SELECT * FROM c WHERE c.payPeriodsummary.win = @win AND c.payPeriodsummary.payrolRunDate <= @endDate AND c.payPeniodsummary.payrolRunDate >= @startDate")
     List<Employee> findByPayPeriodSummary(@Param("win") int win, @Param("startDate") String startDate, @Param("endDate") String endDate);
 
