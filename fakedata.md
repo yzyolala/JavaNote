@@ -1,4 +1,69 @@
-```javahttps://us05web.zoom.us/j/5613422129?pwd=CsvaLDuAvnmeT1g4iJ7gzUB0Xah0vb.1
+```
+type PayAssociateInfo {
+  userID: Long!
+  firstName: String!
+  middleInitial: String
+  lastName: String!
+  nameSuffix: String
+  addrLine1: String!
+  addrLine2: String
+  addrLine3: String
+  city: String!
+  stateCode: String!
+  countyCode: String
+  regionCode: String
+  zipCode: String!
+  payCategory: String!
+  ascStoreDetails: AscStoreDetails
+  jobTitle: type PayPeriodSummary {
+  win: Long!
+  year: Long!
+  payrollRunDate: String!
+  payPeriodEndDate: String!
+  sequenceRowCode: String
+  payrollCorpCode: String
+  checkSeriesCode: String
+  checkType: String
+  payToName: String
+  checkNbr: String
+  checkDate: String!
+  grossCheckAmount: Float!
+  netCheckAmount: type CheckInfo {
+  payPDBegDate: String!
+  payPDEndDate: String!
+  checkDate: String!
+  clearedDate: String
+  voidDate: String
+  checkNbr: String!
+  checkType: String!
+  checkAmt: Float!
+  totalAmt: Float!
+  payFrequency: type CheckAdviseSummary {
+  category: String!
+  currAmt: Float!
+  ytdAmt: type W4 {
+  specialLetter: Float!
+  netClaimAmount: Float!
+  otherIncome: Float
+  deductionAmt: Float
+  dependentAmt: Float
+  additionalTaxPCT: Float
+  additionalTaxAmt: Float
+  exemptionQty: Long
+  maritalStatus: String
+  taxTypeCd: String
+}
+
+
+
+
+
+
+
+
+
+
+javahttps://us05web.zoom.us/j/5613422129?pwd=CsvaLDuAvnmeT1g4iJ7gzUB0Xah0vb.1
 
     
 
