@@ -1,5 +1,70 @@
 ```java
 
+    
+
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.hamcrest.Matchers.*;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import com.example.demo.controller.RootPaystubController;
+import com.example.demo.dto.PayPeriodSummaryVO;
+import com.example.demo.dto.PaystubDTO;
+import com.example.demo.service.PaystubService;
+
+@WebMvcTest(RootPaystubController.class)
+public class RootPaystubControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private PaystubService paystubService;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
+    @Test
+    public void testGetPayStubWithinRange() throws Exception {
+        // Prepare mock data
+        PayPeriodSummaryVO summary1 = new PayPeriodSummaryVO();
+        PayPeriodSummaryVO summary2 = new PayPeriodSummaryVO();
+        List<PayPeriodSummaryVO> summaries = Arrays.asList(summary1, summary2);
+
+        // Mock the service method
+        when(paystubService.getRootpaystubsByQuery(any(PaystubDTO.class))).thenReturn(summaries);
+
+        // Perform the request and verify the response
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/paystub/getPayStubWithinRange")
+                .header("win", "123456789")
+                .header("payPDBegDate", "2023-01-01")
+                .header("payPDEndDate", "2023-12-31")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(2)));
+        
+        // Verify the service method was called with the correct parameters
+        verify(paystubService, times(1)).getRootpaystubsByQuery(any(PaystubDTO.class));
+    }
+}
+
 List<RootPaystub> findByPayPeriodSummary_WinAndPayPeriodSummary_PayrollRunDateLessThanEqualAndPayPeriodSummary_PayrollRunDateGreaterThanEqual(int win, String startDate, String endDate);
 
 @Query("SELECT * FROM c WHERE c.payPeriodsummary.win = @win AND c.payPeriodsummary.payrolRunDate <= @endDate AND c.payPeniodsummary.payrolRunDate >= @startDate")
