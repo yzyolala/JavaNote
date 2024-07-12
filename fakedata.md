@@ -1,27 +1,4 @@
-``` type Earnings {
-  desc: String!
-  rate: Float!
-  hours: Float!
-  ytdHours: Float!
-  currAmt: Float!
-  ytdAmt: Float!
-type Taxes {
-  taxType: TaxTypeEnum!
-  desc: String!
-  currAmt: Float!
-  ytdAmt: type Deductions {
-  desc: String!
-  currAmt: Float!
-  ytdAmt: Float!
-  category: type DepositDistribution {
-  accountNbr: String!
-  routingNbr: String!
-  type: String!
-  amount: type BenefitHoursSummary {
-  desc: String!
-  hours: Float!
-  date: String!
-  text: query {
+query {
   getCertainPayStub(
     win: "224823028",
     payrollRunDate: "2023-06-28",
@@ -44,13 +21,95 @@ type Taxes {
       grossCheckAmount
       netCheckAmount
     }
+    payAssociateInfo {
+      userID
+      firstName
+      middleInitial
+      lastName
+      nameSuffix
+      addrLine1
+      addrLine2
+      addrLine3
+      city
+      stateCode
+      countyCode
+      regionCode
+      zipCode
+      payCategory
+      ascStoreDetails {
+        divNbr
+        storeName1
+        storeName2
+        storeNbr
+        addrLine1
+        addrLine2
+        city
+        stateCode
+        countyCode
+        regionCode
+        zipCode
+      }
+      jobTitle
+    }
+    checkInfo {
+      payPDBeDate
+      payPEndDate
+      checkDate
+      clearedDate
+      voidDate
+      checkNbr
+      checkType
+      checkAmt
+      totalAmt
+      payFrequency
+    }
+    checkAdviseSummary {
+      category
+      currAmt
+    }
+    w4 {
+      specialLetter
+      netClaimAmount
+      otherIncome
+      deductionAmt
+      dependentAmt
+      additionalTaxPCT
+      additionalTaxAmt
+      exemptionQty
+      maritalStatus
+      taxTypeCd
+    }
+    earnings {
+      desc
+      rate
+      hours
+      ytdHours
+      currAmt
+      ytdAmt
+    }
+    taxes {
+      taxType
+      desc
+      currAmt
+      ytdAmt
+    }
+    deductions {
+      desc
+      currAmt
+      ytdAmt
+      category
+    }
+    depositDistribution {
+      accountNbr
+      routingNbr
+      type
+      amount
+    }
+    benefitHoursSummary {
+      desc
+      hours
+      date
+      text
+    }
   }
 }
-
-
-
-
-
-
-
-```
