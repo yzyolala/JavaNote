@@ -1,3 +1,4 @@
+、、、java
 query {
   getCertainPayStub(
     win: "224823028",
@@ -113,3 +114,5 @@ query {
     }
   }
 }
+
+、、、
