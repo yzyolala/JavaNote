@@ -21,7 +21,30 @@ type Taxes {
   desc: String!
   hours: Float!
   date: String!
-  text: String!
+  text: query {
+  getCertainPayStub(
+    win: "224823028",
+    payrollRunDate: "2023-06-28",
+    sequenceRowCode: "01"
+  ) {
+    id
+    holdIndicator
+    payPeriodSummary {
+      win
+      year
+      payrollRunDate
+      payPeriodEndDate
+      sequenceRowCode
+      payrollCorpCode
+      checkSeriesCode
+      checkType
+      payToName
+      checkNbr
+      checkDate
+      grossCheckAmount
+      netCheckAmount
+    }
+  }
 }
 
 
