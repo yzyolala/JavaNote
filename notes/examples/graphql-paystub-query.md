@@ -1,8 +1,12 @@
-、、、java
+# GraphQL Pay Stub Query 示例
+
+原笔记中的 GraphQL 查询示例，已修正为标准代码块格式。
+
+```graphql
 query {
   getCertainPayStub(
-    win: "224823028",
-    payrollRunDate: "2023-06-28",
+    win: "224823028"
+    payrollRunDate: "2023-06-28"
     sequenceRowCode: "01"
   ) {
     id
@@ -114,5 +118,4 @@ query {
     }
   }
 }
-
-、、、
+```
